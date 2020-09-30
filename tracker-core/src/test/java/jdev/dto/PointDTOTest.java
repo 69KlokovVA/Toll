@@ -18,7 +18,7 @@ public class PointDTOTest {
     public void toJson() throws Exception {
         PointDTO point = new PointDTO();
         point.setLat(47);
-        point.setLon(74);
+        point.setLon(45);
         point.setAutoId(autoId);
         point.setTime(System.currentTimeMillis());
         assertTrue(point.toJson().contains("\"lat\":47"));
@@ -31,6 +31,8 @@ public class PointDTOTest {
         dto = dto.toPoint(json);
         assertEquals(autoId, dto.getAutoId());
         assertEquals(1601448822585L, dto.getTime());
+        assertEquals(47L, dto.getLat(),0);
+        assertEquals(45L, dto.getLon(),0);
         System.out.println("прошел тест tracker-core");
     }
 }

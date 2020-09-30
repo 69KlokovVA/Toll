@@ -20,7 +20,7 @@ public class PointDTOTest {
         PointDTO point = new PointDTO();
         point.setLat(23);
         point.setLon(45);
-        point.setAutoId("o567gfd234");
+        point.setAutoId(autoId);
         point.setTime(System.currentTimeMillis());
         assertTrue(point.toJson().contains("\"lon\":45"));
         System.out.println(point.toJson());
@@ -32,6 +32,8 @@ public class PointDTOTest {
         dto = dto.toPoint(json);
         assertEquals(autoId, dto.getAutoId());
         assertEquals(1601448016633L, dto.getTime());
+        assertEquals(45, dto.getLon(),0);
+        assertEquals(23, dto.getLat(),0);
         System.out.println("прошел тест server-core");
     }
 }

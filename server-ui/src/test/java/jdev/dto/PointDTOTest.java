@@ -18,11 +18,11 @@ public class PointDTOTest {
     @Test
     public void toJson() throws Exception {
         PointDTO point = new PointDTO();
-        point.setLat(56);
-        point.setLon(74);
-        point.setAutoId("o567gfd");
+        point.setLat(23);
+        point.setLon(45);
+        point.setAutoId(autoId);
         point.setTime(12345678);
-        assertTrue(point.toJson().contains("\"lat\":56"));
+        assertTrue(point.toJson().contains("\"lat\":23"));
         System.out.println(point.toJson());
     }
 
@@ -32,6 +32,8 @@ public class PointDTOTest {
         dto = dto.toPoint(json);
         assertEquals(autoId, dto.getAutoId());
         assertEquals(12345678L, dto.getTime());
+        assertEquals(45, dto.getLon(),0);
+        assertEquals(23, dto.getLat(),0);
         System.out.println("прошел тест server-ui");
     }
 }

@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class PointDTOTest {
 
-    private String json = "{\"lat\":56.0,\"lon\":74.0,\"autoId\":\"o567gfd\",\"time\":1489900897458}";
+    private String json = "{\"lat\":56.0,\"lon\":74.0,\"autoId\":\"o567gfd\",\"time\":1601448777831}";
     private String autoId = "o567gfd";
 
     @Test
@@ -28,10 +28,11 @@ public class PointDTOTest {
     }
 
     @Test
-    public void decodeDto() throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        PointDTO dto = mapper.readValue(json, PointDTO.class);
+    public void decodeDto() {
+        PointDTO dto = new PointDTO();
+        dto = dto.toPoint(json);
         assertEquals(autoId, dto.getAutoId());
-        assertEquals(1489900897458L, dto.getTime());
+        assertEquals(1601448777831L, dto.getTime());
+        System.out.println("прошел тест common");
     }
 }

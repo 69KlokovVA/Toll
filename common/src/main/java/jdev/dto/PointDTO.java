@@ -4,6 +4,8 @@ package jdev.dto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+
 /**
  * Created by jdev on 06.03.2017.
  */
@@ -41,6 +43,18 @@ public class PointDTO {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(this);
     }
+
+    public PointDTO toPoint(String json) {
+        ObjectMapper mapper = new ObjectMapper();
+        PointDTO pointDTO = null;
+        try {
+            pointDTO = mapper.readValue(json, PointDTO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pointDTO;
+    }
+
 
     @Override
     public String toString() {

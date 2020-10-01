@@ -12,14 +12,16 @@ import static org.junit.Assert.assertTrue;
  */
 public class PointDTOTest {
 
+    private final int anInt = 23;
+    private final int anInt1 = 45;
     private String json = "{\"lat\":23.0,\"lon\":45.0,\"autoId\":\"o567gfd234\",\"time\":1601448016633}";
     private String autoId = "o567gfd234";
 
     @Test
     public void toJson() throws Exception {
         PointDTO point = new PointDTO();
-        point.setLat(23);
-        point.setLon(45);
+        point.setLat(anInt);
+        point.setLon(anInt1);
         point.setAutoId(autoId);
         point.setTime(System.currentTimeMillis());
         assertTrue(point.toJson().contains("\"lon\":45"));
@@ -32,8 +34,8 @@ public class PointDTOTest {
         dto = dto.toPoint(json);
         assertEquals(autoId, dto.getAutoId());
         assertEquals(1601448016633L, dto.getTime());
-        assertEquals(45, dto.getLon(),0);
-        assertEquals(23, dto.getLat(),0);
+        assertEquals(anInt1, dto.getLon(),0);
+        assertEquals(anInt, dto.getLat(),0);
         System.out.println("прошел тест server-core");
     }
 }

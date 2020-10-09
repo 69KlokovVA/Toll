@@ -19,7 +19,7 @@ public class StorageService {
         gpsQueue.put(coordinates);
     }
 
-    // интерфейс для извлечения параметров транспорта (GPS)
+    // интерфейс для извлечения параметров транспорта (GPS) с очисткой очереди
     PointDTO readCoordinates() {
         coordinates = null;
         if (gpsQueue.size() != 0) {

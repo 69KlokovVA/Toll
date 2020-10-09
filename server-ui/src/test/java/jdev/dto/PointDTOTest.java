@@ -16,6 +16,8 @@ public class PointDTOTest {
     private final int anInt1 = 23;
     private String json = "{\"lat\":23.0,\"lon\":45.0,\"autoId\":\"o567gfd234\",\"time\":12345678}";
     private String autoId = "o567gfd234";
+    private final int time = 12345678;
+    private String json1;
 
     @Test
     public void toJson() throws Exception {
@@ -23,9 +25,10 @@ public class PointDTOTest {
         point.setLat(anInt1);
         point.setLon(anInt);
         point.setAutoId(autoId);
-        point.setTime(12345678);
-        assertTrue(point.toJson().contains("\"lat\":23"));
-        System.out.println(point.toJson());
+        point.setTime(time);
+        json1 = point.toJson();
+        assertTrue(json1.contains("\"lat\":23"));
+        System.out.println(json1);
     }
 
     @Test

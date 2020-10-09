@@ -24,8 +24,9 @@ public class PointDTOTest {
         point.setLon(anInt1);
         point.setAutoId(autoId);
         point.setTime(System.currentTimeMillis());
-        assertTrue(point.toJson().contains("\"lon\":45"));
-        System.out.println(point.toJson());
+        String pointjson = point.toJson();
+        assertTrue(pointjson.contains("\"lon\":45"));
+        System.out.println(pointjson);
     }
 
     @Test

@@ -12,6 +12,8 @@ import java.io.IOException;
 public class PointDTO {
     private double lat;
     private double lon;
+    private double azimuth;
+    private double speed;
     private String autoId;
     private long time;
 
@@ -37,6 +39,22 @@ public class PointDTO {
 
     public void setAutoId(String autoId) {
         this.autoId = autoId;
+    }
+
+    public double getAzimuth() {
+        return azimuth;
+    }
+
+    public void setAzimuth(double azimuth) {
+        this.azimuth = azimuth;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 
     public String toJson() throws JsonProcessingException {

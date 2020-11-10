@@ -77,9 +77,12 @@ public class PointDTO {
     @Override
     public String toString() {
         return "PointDTO{" +
-                "\"lat\":" + lat +
+                "lat=" + lat +
                 ", lon=" + lon +
+                ", azimuth=" + azimuth +
+                ", speed=" + speed +
                 ", autoId='" + autoId + '\'' +
+                ", time=" + time +
                 '}';
     }
 

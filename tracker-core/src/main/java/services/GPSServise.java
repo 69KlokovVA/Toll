@@ -14,6 +14,14 @@ public class GPSServise {
     private GPSNavigator gpsNavigator = new GPSNavigator();
     private StorageService storageService = new StorageService();
 
+    public StorageService getStorageService() {
+        return storageService;
+    }
+
+    public void setStorageService(StorageService storageService) {
+        this.storageService = storageService;
+    }
+
     @Scheduled(cron = "${cronGPS.prop}")
     void putGPS() throws InterruptedException {
         // генерация gps-координат

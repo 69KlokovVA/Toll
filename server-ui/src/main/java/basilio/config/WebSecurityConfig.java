@@ -14,10 +14,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css", "/img", "/login").permitAll()
+                .antMatchers("/css", "/img", "/login", "hello").permitAll()
                 .antMatchers("/home").authenticated()
                 .antMatchers("/error").authenticated()
-                .antMatchers("/routes", "payments/**").hasAnyRole("CLIENT", "MANAGER", "ROOT")
+                .antMatchers("/routes", "/payments/**").hasAnyRole("CLIENT", "MANAGER", "ROOT")
                 .antMatchers("/registerClient/**").hasAnyRole("MANAGER", "ROOT")
                 .antMatchers("/registerManager/**").hasRole("ROOT")
                 .and()

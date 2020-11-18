@@ -17,6 +17,7 @@ public class StorageService {
     // интерфейс для записи текущих параметров транспорта (GPS)
     void writeCoordinates(PointDTO coordinates) throws InterruptedException {
         gpsQueue.put(coordinates);
+
     }
 
     // интерфейс для извлечения параметров транспорта (GPS) с очисткой очереди

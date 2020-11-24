@@ -1,5 +1,6 @@
 package services;
 
+import dao.Coords;
 import dao.repo.CoordsRepository;
 import jdev.dto.PointDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,20 @@ public class SendCoordsService {
     CoordsRepository coordsRepository;
 
     public void sendCoords(PointDTO point) {
-        Object obj = coordsRepository; // проверка на NULL
+        // запись в базу данных
+        Object obj = coordsRepository; // вот здесь видно в debug, что  NULL
+        Coords coords = new Coords();
+        coords.setLat(point.getLat());
+        coords.setLon(point.getLon());
+        coords.setAsimuth(point.getAzimuth());
+        coords.setSpeed(point.getSpeed());
+        coordsRepository.save(coords); // не работает
+
+        // отправка координат для POST-запросом
         String url = "http://localhost:8080/coords";
         restTemplate = new RestTemplate();
         // отправка координат для POST-запросом
-        String coords = restTemplate.postForObject(url, point, String.class);
-
-
+        String coordsR = restTemplate.postForObject(url, point, String.class);
     }
 
 }

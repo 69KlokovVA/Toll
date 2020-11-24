@@ -17,7 +17,7 @@ public class SendCoordsService {
     CoordsRepository coordsRepository;
 
     public void sendCoords(PointDTO point) {
-        Object obj = coordsRepository;
+        Object obj = coordsRepository; // проверка на NULL
         String url = "http://localhost:8080/coords";
         restTemplate = new RestTemplate();
         // отправка координат для POST-запросом

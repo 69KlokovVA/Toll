@@ -1,19 +1,24 @@
 package server.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import jdev.dto.PointDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import server.dao.Coords;
+import server.repo.CoordsRepository;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 @RestController
-public class Coords {
-    private static final Logger log = LoggerFactory.getLogger(Coords.class);
+public class CoordsController {
+    private static final Logger log = LoggerFactory.getLogger(CoordsController.class);
+    private Coords coordsDB;
+    @Autowired
+    private CoordsRepository coordsRepository;
 
     // прием координат в виде POST запроса
     @PostMapping("/coords")
@@ -25,6 +30,14 @@ public class Coords {
         // вывод принятых координат в файл
         fileCoords.write(sCoords+"\n");
         fileCoords.close();
+        // запись в базу данных
+
+        coordsDB = new Coords();
+        coordsDB.setSpeed(coords.getSpeed());
+        coordsDB.setAsimuth(coords.getAzimuth());
+        coordsDB.setLat(coords.getLat());
+        coordsDB.setLon(coords.getLon());
+        coordsRepository.save(coordsDB);
         return coords;
     }
 

@@ -8,7 +8,13 @@ import org.junit.Test;
 public class GPSServiseTest extends TestCase {
     private PointDTO coordinates = new PointDTO();
     private GPSNavigator gpsNavigator = new GPSNavigator();
-    private StorageService storageService = new StorageService();
+//    private StorageService storageService = new StorageService();
+    private StorageService storageService;
+
+    public GPSServiseTest(StorageService storageService) {
+        this.storageService = storageService;
+    }
+
     @Test
     public void testPutGPS() throws InterruptedException {
         coordinates = gpsNavigator.setGPSCoordinates();

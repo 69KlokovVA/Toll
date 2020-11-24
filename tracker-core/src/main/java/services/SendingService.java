@@ -13,20 +13,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class SendingService {
     private static final Logger log = LoggerFactory.getLogger(SendingService.class);
-    private StorageService storageService = new StorageService();
     private PointDTO point;
+    UpdateCoords updateCoords = new UpdateCoords();
+    @Autowired
+    private StorageService storageService;
+    @Autowired
     private SendCoordsService sendCoordsService;
- //   private InsertDB insertDB = new InsertDB();
 
     @Scheduled(cron = "${cronSend.prop}")
     void sendCoordinates() throws JsonProcessingException {
-        sendCoordsService = new SendCoordsService();
         // чтение накопленных координат и отправка на сервер
         while ((point = storageService.readCoordinates()) != null) {
             sendCoordsService.sendCoords(point);
-
-            // запись координат в БД
-     //       insertDB.InsertCoordsDB(point);
+updateCoords.UpdateDB(point);
 
         }
     }

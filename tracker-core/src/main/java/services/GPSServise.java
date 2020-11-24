@@ -22,29 +22,14 @@ public class GPSServise {
     private static final Logger log = LoggerFactory.getLogger(GPSServise.class);
     private PointDTO coordinates = new PointDTO();
     private GPSNavigator gpsNavigator = new GPSNavigator();
-    private StorageService storageService = new StorageService();
-  //  private CoordsRepository coordsRepository;
-
-    public GPSServise() {
-
-    }
-
-
-    public StorageService getStorageService() {
-        return storageService;
-    }
-
-    public void setStorageService(StorageService storageService) {
-        this.storageService = storageService;
-    }
-
+    @Autowired
+    private StorageService storageService;
 
     @Scheduled(cron = "${cronGPS.prop}")
     void putGPS() throws InterruptedException {
         List<Coords> all;
         // генерация gps-координат
         coordinates = gpsNavigator.setGPSCoordinates();
-
         // отправить в сервис хранения
         storageService.writeCoordinates(coordinates);
 

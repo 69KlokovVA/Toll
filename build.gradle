@@ -36,6 +36,9 @@ project(':server-core') {
         testCompile("org.springframework.boot:spring-boot-starter-test")
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
         compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+        compile("org.springframework.boot:spring-boot-starter-data-jpa")
+        compile group: 'org.liquibase', name: 'liquibase-core', version: '3.5.3'
+        compile 'org.projectlombok:lombok:1.18.16'
 
     }
 }

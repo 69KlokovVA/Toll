@@ -2,29 +2,16 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet id="db.creation" author="basilio">
+    <changeSet id="db.creation-tcp" author="basilio">
         <sql>
 
             CREATE TABLE COORDS (
-                ID INTEGER   AUTO_INCREMENT PRIMARY KEY,
+                ID integer  AUTO_INCREMENT PRIMARY KEY,
                 LAT NUMBER,
                 LON NUMBER,
                 SPEED NUMBER,
                 AZIMUTH NUMBER
             )
-        </sql>
-    </changeSet>
-    <changeSet id="creation.table123" author="basilio">
-        <sql>
-            CREATE TABLE TABLE123 (
-            ID integer AUTO_INCREMENT PRIMARY KEY,
-            TRIAL VARCHAR2
-            )
-        </sql>
-    </changeSet>
-    <changeSet id="INSERT.table123" author="basilio">
-        <sql>
-            INSERT INTO  TABLE123 (TRIAL) VALUES('Закрепление учебного материала')
         </sql>
     </changeSet>
 

@@ -7,7 +7,7 @@ import java.util.Random;
 public class GPSNavigator {
     public GPSNavigator() {
     }
-// эмуляция значений координат
+// СЌРјСѓР»СЏС†РёСЏ Р·РЅР°С‡РµРЅРёР№ РєРѕРѕРѕСЂРґРёРЅР°С‚
     public PointDTO setGPSCoordinates() {
         PointDTO point = new PointDTO();
         final Random random = new Random();

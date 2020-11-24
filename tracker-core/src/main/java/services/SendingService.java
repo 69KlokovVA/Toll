@@ -1,27 +1,33 @@
 package services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import dao.repo.CoordsRepository;
 import jdev.dto.PointDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-// Сервис отправки сообщений
+// РЎРµСЂРІРёСЃ РѕС‚РїСЂР°РІРєРё СЃРѕРѕР±С‰РµРЅРёР№
 @Service
 public class SendingService {
     private static final Logger log = LoggerFactory.getLogger(SendingService.class);
     private StorageService storageService = new StorageService();
     private PointDTO point;
     private SendCoordsService sendCoordsService;
-
+ //   private InsertDB insertDB = new InsertDB();
 
     @Scheduled(cron = "${cronSend.prop}")
     void sendCoordinates() throws JsonProcessingException {
         sendCoordsService = new SendCoordsService();
-        // чтение накопленных координат и отправка на сервер
+        // С‡С‚РµРЅРёРµ РЅР°РєРѕРїР»РµРЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚ Рё РѕС‚РїСЂР°РІРєР° РЅР° СЃРµСЂРІРµСЂ
         while ((point = storageService.readCoordinates()) != null) {
-              sendCoordsService.sendCoords(point);
+            sendCoordsService.sendCoords(point);
+
+            // Р·Р°РїРёСЃСЊ РєРѕРѕСЂРґРёРЅР°С‚ РІ Р‘Р”
+     //       insertDB.InsertCoordsDB(point);
+
         }
     }
 }

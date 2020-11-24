@@ -1,14 +1,17 @@
 package jdev.tracker;
 
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import dao.repo.CoordsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.stereotype.Component;
 import services.GPSServise;
 import services.SendingService;
 
@@ -17,7 +20,7 @@ import services.SendingService;
  */
 @Configuration
 @EnableScheduling
-@PropertySource("classpath:/app.properties")
+@PropertySource("classpath:/application.properties")
 public class SchedulingContext {
 
     @Bean
@@ -27,8 +30,9 @@ public class SchedulingContext {
 
     @Bean
     public SendingService sendingService() {
-        return new SendingService();
+         return new SendingService();
     }
+
 
     @Bean
     public TaskScheduler poolScheduler() {

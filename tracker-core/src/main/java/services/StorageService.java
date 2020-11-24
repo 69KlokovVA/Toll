@@ -8,19 +8,20 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
-// Сервис хранения сообщений
+// РЎРµСЂРІРёСЃ С…СЂР°РЅРµРЅРёСЏ СЃРѕРѕР±С‰РµРЅРёР№
+@Service
 public class StorageService {
     private static final Logger log = LoggerFactory.getLogger(GPSServise.class);
     private PointDTO coordinates = new PointDTO();
     private static BlockingDeque<PointDTO> gpsQueue = new LinkedBlockingDeque<>();
 
-    // интерфейс для записи текущих параметров транспорта (GPS)
+    // РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ Р·Р°РїРёСЃРё С‚РµРєСѓС‰РёС… РїР°СЂР°РјРµС‚СЂРѕРІ С‚СЂР°РЅСЃРїРѕСЂС‚Р° (GPS)
     void writeCoordinates(PointDTO coordinates) throws InterruptedException {
         gpsQueue.put(coordinates);
 
     }
 
-    // интерфейс для извлечения параметров транспорта (GPS) с очисткой очереди
+    // РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ РёР·РІР»РµС‡РµРЅРёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ С‚СЂР°РЅСЃРїРѕСЂС‚Р° (GPS) СЃ РѕС‡РёСЃС‚РєРѕР№ РѕС‡РµСЂРµРґРё
     PointDTO readCoordinates() {
         coordinates = null;
         if (gpsQueue.size() != 0) {
@@ -28,4 +29,5 @@ public class StorageService {
         }
         return coordinates;
     }
+
 }

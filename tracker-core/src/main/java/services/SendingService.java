@@ -15,17 +15,15 @@ public class SendingService {
     private static final Logger log = LoggerFactory.getLogger(SendingService.class);
     private PointDTO point;
     UpdateCoords updateCoords = new UpdateCoords();
-    @Autowired
-    private StorageService storageService;
-    @Autowired
-    private SendCoordsService sendCoordsService;
+    private StorageService storageService = new StorageService();
+    private SendCoordsService sendCoordsService = new SendCoordsService();
 
     @Scheduled(cron = "${cronSend.prop}")
     void sendCoordinates() throws JsonProcessingException {
         // чтение накопленных координат и отправка на сервер
         while ((point = storageService.readCoordinates()) != null) {
             sendCoordsService.sendCoords(point);
-updateCoords.UpdateDB(point);
+//updateCoords.UpdateDB(point);
 
         }
     }

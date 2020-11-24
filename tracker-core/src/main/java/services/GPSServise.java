@@ -22,8 +22,7 @@ public class GPSServise {
     private static final Logger log = LoggerFactory.getLogger(GPSServise.class);
     private PointDTO coordinates = new PointDTO();
     private GPSNavigator gpsNavigator = new GPSNavigator();
-    @Autowired
-    private StorageService storageService;
+    private StorageService storageService = new StorageService();
 
     @Scheduled(cron = "${cronGPS.prop}")
     void putGPS() throws InterruptedException {

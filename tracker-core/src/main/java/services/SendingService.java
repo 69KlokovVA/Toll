@@ -23,8 +23,10 @@ public class SendingService {
     void sendCoordinates() throws JsonProcessingException {
         // чтение накопленных координат и отправка на сервер
         while ((point = storageService.readCoordinates()) != null) {
- //           updateCoords.UpdateDB(point); // допилить
-//            sendCoordsService.sendCoords(point);
+//           updateCoords.UpdateDB(point);
+            // отправка координат
+            sendCoordsService.sendCoords(point);
+            // пока вызов по п.6 задания здесь
             routeRequest.sendRouteRequest("Navigator-3", 10);
 
         }

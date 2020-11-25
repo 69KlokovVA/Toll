@@ -10,7 +10,10 @@
                 LAT NUMBER,
                 LON NUMBER,
                 SPEED NUMBER,
-                AZIMUTH NUMBER
+                AZIMUTH NUMBER,
+                TIME NUMBER,
+                DEVICE VARCHAR2(30)
+
             )
         </sql>
     </changeSet>

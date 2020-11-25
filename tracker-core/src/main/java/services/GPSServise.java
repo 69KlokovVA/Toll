@@ -37,6 +37,8 @@ public class GPSServise {
         coords.setLon(coordinates.getLon());
         coords.setAsimuth(coordinates.getAzimuth());
         coords.setSpeed(coordinates.getSpeed());
+        coords.setDevice(coordinates.getDevice());
+        coords.setTime(coordinates.getTime());
 /*        Object obj = coordsRepository; // проверка на null debug
         coordsRepository.save(coords);
         all = (List<Coords>) coordsRepository.findAll();

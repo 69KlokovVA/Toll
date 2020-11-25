@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import server.repo.CoordsRepository;
 
 @SpringBootApplication
-//@EnableJpaRepositories("server.repo")
-
 public class GetCoordsApplication {
 
     public static void main(String[] args) {

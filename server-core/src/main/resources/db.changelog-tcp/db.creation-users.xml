@@ -2,19 +2,15 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet id="db.creation-tcp" author="basilio">
+    <changeSet id="db.creation-users" author="basilio">
         <sql>
 
-            CREATE TABLE COORDS (
-            ID INTEGER   AUTO_INCREMENT PRIMARY KEY,
-            LAT NUMBER,
-            LON NUMBER,
-            SPEED NUMBER,
-            AZIMUTH NUMBER,
-            TIME NUMBER,
-            DEVICE VARCHAR2(30)
-
-            )
+            CREATE TABLE USERS (
+                ID integer  AUTO_INCREMENT PRIMARY KEY,
+                FIRST_NAME VARCHAR2(30),
+                LAST_NAME VARCHAR2(30),
+                SERVICE NUMBER
+               )
         </sql>
     </changeSet>
 

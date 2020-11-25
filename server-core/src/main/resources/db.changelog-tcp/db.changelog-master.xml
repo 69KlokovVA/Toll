@@ -7,5 +7,6 @@
 
     <include file="/db.changelog-tcp/db.creation.xml"/>
 
+    <include file="/db.changelog-tcp/db.creation-users.xml"/>
 
 </databaseChangeLog>

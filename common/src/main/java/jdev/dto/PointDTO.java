@@ -14,7 +14,7 @@ public class PointDTO {
     private double lon;
     private double azimuth;
     private double speed;
-    private String autoId;
+    private String device;
     private long time;
 
     public double getLat() {
@@ -33,12 +33,12 @@ public class PointDTO {
         this.lon = lon;
     }
 
-    public String getAutoId() {
-        return autoId;
+    public String getDevice() {
+        return device;
     }
 
-    public void setAutoId(String autoId) {
-        this.autoId = autoId;
+    public void setDevice(String device) {
+        this.device = device;
     }
 
     public double getAzimuth() {
@@ -81,7 +81,7 @@ public class PointDTO {
                 ", lon=" + lon +
                 ", azimuth=" + azimuth +
                 ", speed=" + speed +
-                ", autoId='" + autoId + '\'' +
+                ", device='" + device + '\'' +
                 ", time=" + time +
                 '}';
     }

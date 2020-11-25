@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UpdateCoords {
     private Coords coords = new Coords();
-    @Autowired
-    private CoordsRepository coordsRepository;
 
+
+    @Autowired
+    private CoordsRepository coordsRepository; // NULL ????
 
     @Transactional
     public void UpdateDB(PointDTO pointDTO) {

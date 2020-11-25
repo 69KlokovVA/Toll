@@ -25,6 +25,28 @@ public class Coords {
     @Column(name = "SPEED")
     double speed;
 
+    @Column(name = "TIME")
+    long time;
+
+    @Column(name = "DEVICE")
+    String device;
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
+
     public int getId() {
         return id;
     }

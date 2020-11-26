@@ -50,6 +50,7 @@ project(':server-ui') {
 
     dependencies {
         compile project(':common')
+        compile project(':server-core')
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
         // tag::security[]
         compile("org.springframework.boot:spring-boot-starter-security")

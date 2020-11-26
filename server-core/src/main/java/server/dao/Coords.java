@@ -20,7 +20,7 @@ public class Coords {
     double lon;
 
     @Column(name = "AZIMUTH")
-    double asimuth;
+    double azimuth;
 
     @Column(name = "SPEED")
     double speed;
@@ -71,12 +71,12 @@ public class Coords {
         this.lon = lon;
     }
 
-    public double getAsimuth() {
-        return asimuth;
+    public double getAzimuth() {
+        return azimuth;
     }
 
-    public void setAsimuth(double asimuth) {
-        this.asimuth = asimuth;
+    public void setazimuth(double azimuth) {
+        this.azimuth = azimuth;
     }
 
     public double getSpeed() {

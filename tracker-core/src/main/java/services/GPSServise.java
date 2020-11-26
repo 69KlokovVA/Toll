@@ -35,7 +35,7 @@ public class GPSServise {
         Coords coords = new Coords();
         coords.setLat(coordinates.getLat());
         coords.setLon(coordinates.getLon());
-        coords.setAsimuth(coordinates.getAzimuth());
+        coords.setazimuth(coordinates.getAzimuth());
         coords.setSpeed(coordinates.getSpeed());
         coords.setDevice(coordinates.getDevice());
         coords.setTime(coordinates.getTime());

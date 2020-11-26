@@ -64,7 +64,7 @@ public class CoordsController {
         // запись в базу данных
         coordsDB = new Coords();
         coordsDB.setSpeed(coords.getSpeed());
-        coordsDB.setAsimuth(coords.getAzimuth());
+        coordsDB.setazimuth(coords.getAzimuth());
         coordsDB.setLat(coords.getLat());
         coordsDB.setLon(coords.getLon());
         coordsDB.setTime(coords.getTime());

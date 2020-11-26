@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Координаты</title>
+</head>
+<body>
+
+<table border="1" cellpadding="5" style="border-collapse: collapse; border:1px solid black">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>широта</th>
+        <th>долгота</th>
+        <th>азимут</th>
+        <th>скорость</th>
+        <th>время</th>
+        <th>устройство</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="coord : ${coords}">
+        <td><span th:text="${coord.id}"> id </span></td>
+        <td><span th:text="${coord.lat}"> lat </span></td>
+        <td><span th:text="${coord.lon}"> lat </span></td>
+        <td><span th:text="${coord.azimuth}"> lat </span></td>
+        <td><span th:text="${coord.speed}"> lat </span></td>
+        <td><span th:text="${coord.time}"> lat </span></td>
+        <td><span th:text="${coord.device}"> lat </span></td>
+    </tr>
+    </tbody>
+</table>
+<p>Кликните <a th:href="@{/update}">здесь</a>, для редактирования</p>
+
+</body>
+</html>

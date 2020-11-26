@@ -1,4 +1,4 @@
-package dao;
+package basilio.dao;
 
 import javax.persistence.*;
 
@@ -75,7 +75,7 @@ public class Coords {
         return azimuth;
     }
 
-    public void setazimuth(double azimuth) {
+    public void setAzimuth(double azimuth) {
         this.azimuth = azimuth;
     }
 

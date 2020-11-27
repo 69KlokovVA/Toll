@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class ReadCoords {
@@ -23,5 +24,12 @@ public class ReadCoords {
         model.addAttribute("coords", coordsList);
 
         return "table";
+    }
+
+    @PostMapping("/updateTable")
+ //   public String setCoordinates(@RequestBody List<Coords> coords) {
+    public String setCoordinates(){
+
+        return "redirect:/updateTable";
     }
 }

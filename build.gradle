@@ -60,6 +60,8 @@ project(':server-ui') {
         testCompile("org.springframework.security:spring-security-test")
     }
 }
+
+
 //apply plugin: 'gradle-one-jar'
 
 

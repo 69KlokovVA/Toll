@@ -5,7 +5,7 @@
     <title>Координаты</title>
 </head>
 <body>
-
+<form th:action="@{/updateTable}" method="post">
 <table border="1" cellpadding="5" style="border-collapse: collapse; border:1px solid black">
     <thead>
     <tr>
@@ -30,6 +30,7 @@
     </tr>
     </tbody>
 </table>
+</form>
 <p>Кликните <a th:href="@{/updateTable}">здесь</a>, для редактирования</p>
 
 </body>

@@ -14,12 +14,14 @@ public class UpdateCoords {
 
     @Autowired
     private CoordsRepository coordsRepository; // NULL ????
+// разобраться с @Autowired с более чем одним бином
 
     @Transactional
     public void UpdateDB(PointDTO pointDTO) {
         coords.setSpeed(pointDTO.getSpeed());
         //...
 //        coordsRepository.save(coords);
+// умение записывать в базу данных показываю в модуле server-core
     }
 
 }

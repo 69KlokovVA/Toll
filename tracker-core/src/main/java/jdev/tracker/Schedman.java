@@ -33,11 +33,9 @@ import org.springframework.web.client.RestTemplate;
 @EnableJpaRepositories("dao.repo")
 @EntityScan(basePackageClasses = dao.Coords.class)
 @ComponentScan({"services", "jdev.tracker"})
-
-
 public class Schedman {
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(SchedulingContext.class);
+//        ApplicationContext context = new AnnotationConfigApplicationContext(SchedulingContext.class);
         SpringApplication.run(Schedman.class, args);
     }
 
